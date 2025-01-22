@@ -1,6 +1,6 @@
 from flask import Flask, jsonify
-from flask_cors import CORS
-import mysql.connector
+from flask_cors import CORS # type: ignore
+import mysql.connector # type: ignore
 
 app = Flask(__name__)
 CORS(app)
@@ -20,7 +20,7 @@ def get_characters():
         conn = mysql.connector.connect(**db_config)
         cursor = conn.cursor(dictionary=True)  # Use dictionary=True for column names as keys
 
-        query = "SELECT name, true-name, age, status, rank, class, aspect, flaw, image_path FROM characters"
+        query = "SELECT name, true-name, age, status, rank, class, aspect, flaw, image FROM characters"
         cursor.execute(query)
         characters = cursor.fetchall()
 

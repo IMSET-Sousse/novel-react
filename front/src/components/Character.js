@@ -34,7 +34,7 @@ const Character = () => {
                         data-aspect={`Aspect Rank: ${character.aspect}`}
                         data-flaw={`Flaw: ${character.flaw}`}
                     >
-                        <img src={character.image_path} alt={character.name} />
+                        <img src={character.image} alt={character.name} />
                     </div>
                 ))}
             </div>
