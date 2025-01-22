@@ -36,8 +36,6 @@
 
 ## 6.Non-Functional Requirements:
     Performance: Must load within 3 seconds on standard devices.
-    Compatibility: Support modern browsers (Chrome, Firefox, Safari, Edge).
-    Accessibility: WCAG 2.1 compliance for accessibility.
 
 
 ## 7.Pages and Features:
