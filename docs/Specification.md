@@ -29,7 +29,13 @@
 
 ## 5.Functional Requirements (Fonction de Besoin):
 
+- **Use-case Diagram:
+
 ![Use Case Diagram](/docs/use-case-diagram.png)
+
+- **Sequence Diagram:
+
+![Use Case Diagram](/docs/sequence-diagram.png)
 
     Features for each page (as already described) with user interaction details.
     Example: "The 'Characters Page' will allow users to hover over a character card to see additional details like Name and traits."
