@@ -3,7 +3,7 @@
 ## Members:
 - Raed Bouguerra - raedbgr
 - Fedy Meherzi - Fedy47
-- Feres ben afia - FeresBenAfia
+- Fares ben afia - FeresBenAfia
 - Mohamed Moutie Kahouli - Mohamedmoutie
 
 ## 1.Project Overview:
@@ -26,7 +26,7 @@
 ## 4.Resources:
 - Raed
 - Fedy
-- Feres
+- Fares
 - Moutie
 
 ## 5.Functional Requirements (Fonction de Besoin):
