@@ -1,15 +1,20 @@
-import React, { useEffect, useState } from "react";
+import React, { useState, useEffect } from "react";
+import axios from "axios";
 import "../styles/characters.css";
 
 const Character = () => {
     const [characters, setCharacters] = useState([]);
 
+    // Fetch characters from the Flask API
     useEffect(() => {
-        fetch("http://127.0.0.1:5000/api/characters") // Backend API URL
-            .then((response) => response.json())
-            .then((data) => setCharacters(data))
-            .catch((error) => console.error("Error fetching characters:", error));
-    }, []);
+        axios.get("http://localhost:5000/api/characters") // Adjust the URL if needed
+            .then((response) => {
+                setCharacters(response.data);
+            })
+            .catch((error) => {
+                console.error("Error fetching characters:", error);
+            });
+    }, []); // Run this effect once on component mount
 
     return (
         <div className="content-box">
@@ -18,8 +23,8 @@ const Character = () => {
             <div className="ch-images">
                 {characters.map((character, index) => (
                     <div
-                        key={index}
                         className="ch-box"
+                        key={index}
                         data-name={`Name: ${character.name}`}
                         data-true-name={`True Name: ${character.true_name}`}
                         data-age={`Age: ${character.age}`}
@@ -29,10 +34,7 @@ const Character = () => {
                         data-aspect={`Aspect Rank: ${character.aspect}`}
                         data-flaw={`Flaw: ${character.flaw}`}
                     >
-                        <img
-                            src={character.image}
-                            alt={character.name}
-                        />
+                        <img src={character.image_path} alt={character.name} />
                     </div>
                 ))}
             </div>
