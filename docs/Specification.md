@@ -37,7 +37,11 @@
 
 - Sequence Diagram:
 
-![Use Case Diagram](/docs/sequence-diagram.png)
+![Sequence Diagram](/docs/sequence-diagram.png)
+
+- Package Diagram:
+
+![Package Diagram](/docs/package-diagram.png)
 
 - Features for each page (as already described) with user interaction details.
 - Example: 
