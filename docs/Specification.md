@@ -6,22 +6,22 @@
     Feres ben afia - FeresBenAfia
     Mohamed Moutie Kahouli - Mohamedmoutie
 
-## Project Overview:
+## 1.Project Overview:
     Name: Shadow Slave Web App
     Purpose: A web application dedicated to presenting detailed information about the novel Shadow Slave, including its plot, characters, and key themes.
     Scope:  Frontend development only, focusing on design, interactivity, and responsive layout.
 
-## Target Audience:
+## 2.Target Audience:
     Fans of Shadow Slave.
     Students and educators interested in analysing its themes and characters.
 
-## Technical Stack:
+## 3.Technical Stack:
     Frontend: React.js.
     Backend: Flask (future integration details if planned).
     Version Control: GitHub or GitLab for collaboration.
 
 
-## Resources:
+## 4.Resources:
     Raed
     Fedy
     Feres
@@ -32,7 +32,7 @@
 ![Use Case Diagram](/docs/use-case-diagram.png)
 
     Features for each page (as already described) with user interaction details.
-    Example: "The 'Characters Page' will allow users to hover over or click on a character card to see additional details like quotes and traits."
+    Example: "The 'Characters Page' will allow users to hover over a character card to see additional details like Name and traits."
 
 ## 6.Non-Functional Requirements:
     Performance: Must load within 3 seconds on standard devices.
