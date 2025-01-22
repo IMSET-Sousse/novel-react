@@ -3,7 +3,8 @@
 ## Members:
     Raed Bouguerra - raedbgr
     Fedy Meherzi - Fedy47
-    Feres ben afia-FeresBenAfia
+    Feres ben afia - FeresBenAfia
+    Mohamed Moutie Kahouli - Mohamedmoutie
 
 ## Project Overview:
     Name: Shadow Slave Web App
@@ -28,7 +29,7 @@
 
 ## 5.Functional Requirements (Fonction de Besoin):
 
-    ![Use Case Diagram](UCD2.png)
+    ![Use Case Diagram](/docs/use-case-diagram.png)
 
     Features for each page (as already described) with user interaction details.
     Example: "The 'Characters Page' will allow users to hover over or click on a character card to see additional details like quotes and traits."
