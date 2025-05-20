@@ -4,7 +4,7 @@ import { useState } from "react";
 
 export default function Login() {
   const [formData, setFormData] = useState({
-    username: "",
+    email: "",
     password: "",
   });
 
@@ -16,30 +16,26 @@ export default function Login() {
     e.preventDefault();
 
     try {
-      // Send login request to Django backend
-      const response = await fetch("http://127.0.0.1:8000/api/shadowslave/login/", {
+      const response = await fetch("http://localhost:5000/api/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
-          username: formData.username,
+          email: formData.email,
           password: formData.password,
         }),
       });
 
       const data = await response.json();
 
-      if (response.ok) {
-        // Successfully logged in, save JWT token
-        localStorage.setItem("access_token", data.access);
-        localStorage.setItem("refresh_token", data.refresh);
+      if (response.ok && data.success) {
+        // Store user info in localStorage or context if needed
+        localStorage.setItem("user", JSON.stringify(data.data));
         alert("Login successful!");
-        // Redirect user to dashboard or home page
-        window.location.href = "/profile"; // Replace with actual route
+        window.location.href = "/profile";
       } else {
-        // Handle error (wrong credentials, etc.)
-        alert(data.detail || "Login failed");
+        alert(data.message || "Login failed");
       }
     } catch (error) {
       console.error("Error during login:", error);
@@ -53,10 +49,10 @@ export default function Login() {
       <div className="space"></div>
       <form onSubmit={handleSubmit} className="register-form">
         <input
-          type="text"
-          name="username"
-          placeholder="Username"
-          value={formData.username}
+          type="email"
+          name="email"
+          placeholder="Email"
+          value={formData.email}
           onChange={handleChange}
           required
         />
