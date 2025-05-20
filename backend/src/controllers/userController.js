@@ -4,15 +4,19 @@ const router = express.Router();
 
 // Register a new user
 router.post('/register', async (req, res) => {
-    const { email, password } = req.body;
+    console.log('REGISTER BODY:', req.body);
+    const { username, email, password } = req.body || {};
+    if (!username || !email || !password) {
+        return res.status(400).json({ success: false, message: 'Username, email and password are required.' });
+    }
     try {
         // Check if the user already exists
         const existingUser = await User.findOne({ email });
         if (existingUser) {
-            return res.status(400).json({ message: 'User already exists' });
+            return res.status(400).json({ success: false, message: 'User already exists' });
         }
         // Create a new user
-        const user = new User({ email, password });
+        const user = new User({ username, email, password });
         await user.save();
         res.status(201).json({
             success: true,
@@ -20,6 +24,7 @@ router.post('/register', async (req, res) => {
             data: user
         });
     } catch (error) {
+        console.error('Register error:', error);
         res.status(500).json({
             success: false,
             message: 'Something went wrong',
@@ -30,7 +35,11 @@ router.post('/register', async (req, res) => {
 
 // User login
 router.post('/login', async (req, res) => {
-    const { email, password } = req.body;
+    console.log('LOGIN BODY:', req.body);
+    const { email, password } = req.body || {};
+    if (!email || !password) {
+        return res.status(400).json({ success: false, message: 'Email and password are required.' });
+    }
     try {
         // Check if user exists
         const user = await User.findOne({ email });
@@ -55,6 +64,7 @@ router.post('/login', async (req, res) => {
             data: user
         });
     } catch (error) {
+        console.error('Login error:', error);
         res.status(500).json({
             success: false,
             message: 'Something went wrong',

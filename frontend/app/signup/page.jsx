@@ -4,6 +4,7 @@ import { useState } from "react";
 
 export default function Register() {
   const [formData, setFormData] = useState({
+    username: "",
     email: "",
     password: "",
     confirmPassword: "",
@@ -28,6 +29,7 @@ export default function Register() {
           "Content-Type": "application/json",
         },
         body: JSON.stringify({
+          username: formData.username,
           email: formData.email,
           password: formData.password,
         }),
@@ -54,6 +56,14 @@ export default function Register() {
       <h2>Register</h2>
       <div className="space"></div>
       <form onSubmit={handleSubmit} className="register-form">
+        <input
+          type="text"
+          name="username"
+          placeholder="Username"
+          value={formData.username}
+          onChange={handleChange}
+          required
+        />
         <input
           type="email"
           name="email"

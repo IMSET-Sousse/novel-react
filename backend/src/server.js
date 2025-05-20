@@ -10,6 +10,7 @@ const characterRoute = require('./routes/character_modules');
 connectDB();
 // Middleware
 app.use(cors());
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 // Routes
 app.use('/api/auth', authRoute);
