@@ -41,7 +41,7 @@ export default function Register() {
         // Store user info in localStorage or context if needed
         localStorage.setItem("user", JSON.stringify(data.data));
         alert("Registration successful!");
-        window.location.href = "/login";
+        window.location.href = "/";
       } else {
         alert(data.message || "Registration failed");
       }
