@@ -33,7 +33,7 @@ export default function Login() {
         // Store user info in localStorage or context if needed
         localStorage.setItem("user", JSON.stringify(data.data));
         alert("Login successful!");
-        window.location.href = "/profile";
+        window.location.href = "/";
       } else {
         alert(data.message || "Login failed");
       }

@@ -1,9 +1,27 @@
+"use client";
 // components/Navbar.jsx
 import Link from "next/link";
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import "../styles/navbar.css";
 
 export default function Navbar() {
+  const [user, setUser] = useState(null);
+
+  useEffect(() => {
+    if (typeof window !== "undefined") {
+      const userData = localStorage.getItem("user");
+      if (userData) {
+        setUser(JSON.parse(userData));
+      }
+    }
+  }, []);
+
+  const handleLogout = () => {
+    localStorage.removeItem("user");
+    window.location.href = "/";
+  };
+
   return (
     <div className="navbar">
       <div className="logo-links">
@@ -35,12 +53,25 @@ export default function Navbar() {
       </div>
       <div className="auth">
         <ul>
-          <li>
-            <Link href="/login">Login</Link>
-          </li>
-          <li>
-            <Link href="/signup">Register</Link>
-          </li>
+          {user ? (
+            <>
+              <li>
+                <Link href="/profile">{user.username}</Link>
+              </li>
+              <li>
+                <button onClick={handleLogout} style={{ background: "none", border: "none", color: "inherit", cursor: "pointer", font: "inherit" }}>Logout</button>
+              </li>
+            </>
+          ) : (
+            <>
+              <li>
+                <Link href="/login">Login</Link>
+              </li>
+              <li>
+                <Link href="/signup">Register</Link>
+              </li>
+            </>
+          )}
         </ul>
       </div>
     </div>
